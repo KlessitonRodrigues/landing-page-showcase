@@ -16,28 +16,28 @@ export default async function PageLayout(props: any) {
     <Suspense fallback={<LoadScreen />}>
       <TopNavBar
         leftComponent={
-          <Row>
-            <Icons iconType="brush" iconSize="1.8rem" />
+          <>
+            <Icons iconType="car" iconSize="2.8rem" />
             <Text bold tag="h1" size="xl">
               {t('navbar.title')}
             </Text>
-          </Row>
+          </>
         }
-        centerComponent={
-          <Row gap={4}>
-            <Text bold size="sm" opacity="80">
+        rightComponent={
+          <>
+            <Text bold opacity="70">
               {t('navbar.home')}
             </Text>
-            <Text bold size="sm" opacity="80">
+            <Text bold opacity="70">
               {t('navbar.cars')}
             </Text>
-            <Text bold size="sm" opacity="80">
+            <Text bold opacity="70">
               {t('navbar.contact')}
             </Text>
-            <Text bold size="sm" opacity="80">
+            <Text bold opacity="70">
               {t('navbar.about')}
             </Text>
-          </Row>
+          </>
         }
       />
       {props.children}
