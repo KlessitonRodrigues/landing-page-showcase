@@ -1,121 +1,168 @@
+import { useServerTranslations } from '@/lib/hooks/useServerTranslation';
 import showcaseImg from '@/public/images/showcase_img.png';
 import {
-  HeadSection,
+  CardListAndImagesSection,
+  CardListSection,
+  CardListTimeline,
   HorizontalCarouselSection,
-  MiddleSection,
-  MiddleSection2,
+  Icons,
+  ImageRightHeader,
+  InnerHTML,
   Page,
+  ResponsiveButton,
+  Row,
+  Text,
+  TopNavBar,
 } from '@packages/daisy-ui-components';
+import Link from 'next/link';
 
-export default function WebApiDashboardPage() {
+export default async function TemplatePage(props: any) {
+  const { t } = await useServerTranslations(props);
+  const serviceFeatures = [
+    {
+      title: t('services.features.reusableBlocks.title'),
+      imgSrc: showcaseImg.src,
+      description: t('services.features.reusableBlocks.description'),
+    },
+    {
+      title: t('services.features.quickCustomization.title'),
+      imgSrc: showcaseImg.src,
+      description: t('services.features.quickCustomization.description'),
+    },
+    {
+      title: t('services.features.scalableCampaigns.title'),
+      imgSrc: showcaseImg.src,
+      description: t('services.features.scalableCampaigns.description'),
+    },
+  ];
+  const carouselItems = [
+    { title: t('carousel.items.item1'), imageSrc: showcaseImg.src },
+    { title: t('carousel.items.item2'), imageSrc: showcaseImg.src },
+    { title: t('carousel.items.item3'), imageSrc: showcaseImg.src },
+    { title: t('carousel.items.item4'), imageSrc: showcaseImg.src },
+    { title: t('carousel.items.item5'), imageSrc: showcaseImg.src },
+  ];
+  const benefitFeatures = [
+    {
+      title: t('benefits.features.instantReuse.title'),
+      description: t('benefits.features.instantReuse.description'),
+    },
+    {
+      title: t('benefits.features.visualConsistency.title'),
+      description: t('benefits.features.visualConsistency.description'),
+    },
+    {
+      title: t('benefits.features.easyAdaptation.title'),
+      description: t('benefits.features.easyAdaptation.description'),
+    },
+  ];
+  const timelineItems = [
+    {
+      title: t('timeline.items.chooseComponents.title'),
+      description: t('timeline.items.chooseComponents.description'),
+      imageSrc: showcaseImg.src,
+    },
+    {
+      title: t('timeline.items.customizeContent.title'),
+      description: t('timeline.items.customizeContent.description'),
+      imageSrc: showcaseImg.src,
+    },
+    {
+      title: t('timeline.items.publishVariations.title'),
+      description: t('timeline.items.publishVariations.description'),
+      imageSrc: showcaseImg.src,
+    },
+    {
+      title: t('timeline.items.validateResults.title'),
+      description: t('timeline.items.validateResults.description'),
+      imageSrc: showcaseImg.src,
+    },
+    {
+      title: t('timeline.items.expandProducts.title'),
+      description: t('timeline.items.expandProducts.description'),
+      imageSrc: showcaseImg.src,
+    },
+    {
+      title: t('timeline.items.scalableWorkflow.title'),
+      description: t('timeline.items.scalableWorkflow.description'),
+      imageSrc: showcaseImg.src,
+    },
+  ];
+
   return (
-    <Page>
-      <HeadSection
-        title={
-          <>
-            Crie <span>landing pages</span> que
-            <br />
-            convertem <span>sem depender</span>
-            <br />
-            de programação
-          </>
+    <>
+      <TopNavBar
+        leftComponent={
+          <Row gap={4}>
+            <Icons iconType="calendar" iconSize="2.4rem" />
+            <Text bold tag="h1" size="xl">
+              {t('navbar.title')}
+            </Text>
+          </Row>
         }
-        description="Comece agora mesmo - sem fidelização, cancele quando quiser"
-        description2="Avaliado por mais de 200 lojistas"
-        buttonText="Ver Demo"
-        button2Text="Teste Grátis"
-        imgSrc={showcaseImg.src}
-      />
-      <MiddleSection
-        title={
-          <>
-            Tudo o que você precisa para criar <span>landing pages</span> incríveis
-          </>
+        rightComponent={
+          <ResponsiveButton>
+            <Row responsive="md" gap={8}>
+              <Link href="#home" className="line-bottom-hover">
+                <Text bold opacity="70">
+                  {t('navbar.home')}
+                </Text>
+              </Link>
+              <Link href="#services" className="line-bottom-hover">
+                <Text bold opacity="70">
+                  {t('navbar.services')}
+                </Text>
+              </Link>
+              <Link href="#prices" className="line-bottom-hover">
+                <Text bold opacity="70">
+                  {t('navbar.prices')}
+                </Text>
+              </Link>
+              <Link href="#contact" className="line-bottom-hover">
+                <Text bold opacity="70">
+                  {t('navbar.contact')}
+                </Text>
+              </Link>
+              <Link href="#about" className="line-bottom-hover">
+                <Text bold opacity="70">
+                  {t('navbar.about')}
+                </Text>
+              </Link>
+            </Row>
+          </ResponsiveButton>
         }
-        description="Nossa plataforma oferece uma variedade de recursos para personalizar suas landing pages, incluindo templates personalizáveis, integração com ferramentas de marketing e análise de desempenho."
-        buttonText="Explore os Recursos"
-        features={[
-          {
-            title: 'Templates Personalizáveis',
-            imgSrc: showcaseImg.src,
-            description:
-              'Escolha entre uma variedade de templates modernos e personalizáveis para criar a landing page perfeita para o seu negócio.',
-          },
-          {
-            title: 'Integração com Ferramentas de Marketing',
-            imgSrc: showcaseImg.src,
-            description:
-              'Conecte facilmente suas landing pages com as principais ferramentas de marketing para maximizar seus resultados.',
-          },
-          {
-            title: 'Análise de Desempenho',
-            imgSrc: showcaseImg.src,
-            description:
-              'Acompanhe o desempenho de suas landing pages com análises detalhadas e otimize suas estratégias de marketing.',
-          },
-        ]}
       />
-      <MiddleSection2
-        title={
-          <>
-            Por que escolher nossa plataforma de <span>landing pages</span>?
-          </>
-        }
-        buttonText="Veja os Benefícios"
-        features={[
-          {
-            title: 'Fácil de Usar',
-            description:
-              'Nossa plataforma é projetada para ser intuitiva e fácil de usar, permitindo que você crie landing pages incríveis sem precisar de habilidades técnicas.',
-          },
-          {
-            title: 'Alta Conversão',
-            description:
-              'Nossos templates e recursos são otimizados para maximizar as taxas de conversão, ajudando você a alcançar seus objetivos de marketing.',
-          },
-          {
-            title: 'Suporte Dedicado',
-            description:
-              'Nossa equipe de suporte está sempre pronta para ajudar você a tirar o máximo proveito da nossa plataforma e resolver quaisquer dúvidas ou problemas que possam surgir.',
-          },
-        ]}
-      />
-      <HorizontalCarouselSection
-        title={
-          <>
-            Crie <span>landing pages</span> que convertem <span>sem depender</span>
-            <br />
-            de programação
-          </>
-        }
-        items={[
-          {
-            title:
-              'Nossa equipe de suporte está sempre pronta para ajudar você a tirar o máximo proveito da nossa plataforma',
-            imageSrc: showcaseImg.src,
-          },
-          {
-            title:
-              'Nossos templates e recursos são otimizados para maximizar as taxas de conversão, ajudando você a alcançar seus objetivos de marketing.',
-            imageSrc: showcaseImg.src,
-          },
-          {
-            title:
-              'Nossa plataforma é projetada para ser intuitiva e fácil de usar, permitindo que você crie landing pages incríveis sem precisar de habilidades técnicas.',
-            imageSrc: showcaseImg.src,
-          },
-          {
-            title:
-              'Nossa equipe de suporte está sempre pronta para ajudar você a tirar o máximo proveito da nossa plataforma',
-            imageSrc: showcaseImg.src,
-          },
-          {
-            title:
-              'Nossos templates e recursos são otimizados para maximizar as taxas de conversão, ajudando você a alcançar seus objetivos de marketing.',
-            imageSrc: showcaseImg.src,
-          },
-        ]}
-      />
-    </Page>
+
+      <Page>
+        <ImageRightHeader
+          id="home"
+          title={<InnerHTML html={t('home.heroTitleHtml')} />}
+          description={t('home.description')}
+          description2={t('home.description2')}
+          buttonText={t('home.primaryCta')}
+          button2Text={t('home.secondaryCta')}
+          imgSrc={showcaseImg.src}
+        />
+        <CardListAndImagesSection
+          id="services"
+          title={<InnerHTML html={t('services.titleHtml')} />}
+          description={t('services.description')}
+          buttonText={t('services.buttonText')}
+          features={serviceFeatures}
+        />
+        <HorizontalCarouselSection
+          id="prices"
+          title={<InnerHTML html={t('carousel.titleHtml')} />}
+          items={carouselItems}
+        />
+        <CardListSection
+          id="benefits"
+          title={<InnerHTML html={t('benefits.titleHtml')} />}
+          buttonText={t('benefits.buttonText')}
+          features={benefitFeatures}
+        />
+        <CardListTimeline items={timelineItems} />
+      </Page>
+    </>
   );
 }
