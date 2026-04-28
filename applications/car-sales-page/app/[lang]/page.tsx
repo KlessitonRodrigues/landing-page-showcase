@@ -11,6 +11,7 @@ import {
   Page,
   ResponsiveButton,
   Row,
+  SimpleFooter,
   Text,
   TopNavBar,
 } from '@packages/daisy-ui-components';
@@ -163,6 +164,20 @@ export default async function TemplatePage(props: any) {
         />
         <CardListTimeline items={timelineItems} />
       </Page>
+      <SimpleFooter
+        id="footer"
+        companyName={t('footer.companyName')}
+        year={new Date().getFullYear()}
+        companyLogoUrl={showcaseImg.src}
+        companyWebsite={t('footer.companyUrl')}
+        companyEmail={t('footer.companyEmail')}
+        companyPhone={t('footer.companyPhone')}
+        companyAddress={t('footer.companyAddress')}
+        socialInstagram={t('footer.socialInstagram')}
+        socialLinkedIn={t('footer.socialLinkedIn')}
+        socialTwitter={t('footer.socialTwitter')}
+        socialWhatsapp={t('footer.socialWhatsapp')}
+      />
     </>
   );
 }
