@@ -20,7 +20,6 @@ export async function generateMetadata(props: any): Promise<Metadata> {
 
 export default async function PageLayout(props: any) {
   setTranslationEnv((await props.params)?.lang);
-
   return (
     <Suspense fallback={<LoadScreen />}>
       {props.children}

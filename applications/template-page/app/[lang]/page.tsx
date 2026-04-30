@@ -94,8 +94,8 @@ export default async function TemplatePage(props: any) {
     <>
       <TopNavBar
         leftComponent={
-          <Row gap={4}>
-            <Icons iconType="calendar" iconSize="2.4rem" />
+          <Row>
+            <Icons iconType="github" iconSize="2rem" />
             <Text bold tag="h1" size="xl">
               {t('navbar.title')}
             </Text>
@@ -119,14 +119,14 @@ export default async function TemplatePage(props: any) {
                   {t('navbar.prices')}
                 </Text>
               </Link>
-              <Link href="#contact" className="line-bottom-hover">
-                <Text bold opacity="70">
-                  {t('navbar.contact')}
-                </Text>
-              </Link>
               <Link href="#about" className="line-bottom-hover">
                 <Text bold opacity="70">
                   {t('navbar.about')}
+                </Text>
+              </Link>
+              <Link href="#footer" className="line-bottom-hover">
+                <Text bold opacity="70">
+                  {t('navbar.contact')}
                 </Text>
               </Link>
             </Row>
@@ -157,7 +157,7 @@ export default async function TemplatePage(props: any) {
           items={carouselItems}
         />
         <CardListSection
-          id="benefits"
+          id="about"
           title={<InnerHTML html={t('benefits.titleHtml')} />}
           buttonText={t('benefits.buttonText')}
           features={benefitFeatures}
@@ -177,6 +177,8 @@ export default async function TemplatePage(props: any) {
         socialLinkedIn={t('footer.socialLinkedIn')}
         socialTwitter={t('footer.socialTwitter')}
         socialWhatsapp={t('footer.socialWhatsapp')}
+        termsUrl={t('footer.termsUrl')}
+        privacyUrl={t('footer.privacyUrl')}
       />
     </>
   );
