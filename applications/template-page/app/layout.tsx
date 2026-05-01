@@ -1,4 +1,4 @@
-import { RedirectPage } from '@packages/daisy-ui-components';
+import { ReadSettings } from '@packages/daisy-ui-components';
 import '@packages/daisy-ui-components/global.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -18,7 +18,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>{children}</body>
-      <RedirectPage />
+      <ReadSettings />
     </html>
   );
 }

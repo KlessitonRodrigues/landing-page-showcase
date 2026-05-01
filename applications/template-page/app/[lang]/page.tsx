@@ -8,11 +8,13 @@ import {
   Icons,
   ImageRightHeader,
   InnerHTML,
+  LangSettings,
   Page,
   ResponsiveButton,
   Row,
   SimpleFooter,
   Text,
+  ThemeSettings,
   TopNavBar,
 } from '@packages/daisy-ui-components';
 import Link from 'next/link';
@@ -129,6 +131,10 @@ export default async function TemplatePage(props: any) {
                   {t('navbar.contact')}
                 </Text>
               </Link>
+              <Row>
+                <ThemeSettings />
+                <LangSettings />
+              </Row>
             </Row>
           </ResponsiveButton>
         }
