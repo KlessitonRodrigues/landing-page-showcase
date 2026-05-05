@@ -11,6 +11,7 @@ import {
   LangSettings,
   Page,
   ResponsiveButton,
+  ResponsiveMenu,
   Row,
   SimpleFooter,
   Text,
@@ -104,7 +105,7 @@ export default async function TemplatePage(props: any) {
           </Row>
         }
         rightComponent={
-          <ResponsiveButton>
+          <ResponsiveMenu position="bottom">
             <Row responsive="md" gap={8}>
               <Link href="#home" className="line-bottom-hover">
                 <Text bold opacity="70">
@@ -136,7 +137,7 @@ export default async function TemplatePage(props: any) {
                 <LangSettings />
               </Row>
             </Row>
-          </ResponsiveButton>
+          </ResponsiveMenu>
         }
       />
 
