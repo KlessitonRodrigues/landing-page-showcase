@@ -6,11 +6,7 @@ import { PropsWithChildren } from 'react';
 
 import './theme.css';
 
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-  preload: true,
-});
+const inter = Inter({ weight: ['500'] });
 
 export const metadata: Metadata = {};
 
