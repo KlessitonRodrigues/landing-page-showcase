@@ -22,15 +22,12 @@ for (const file of files) {
     withoutEnlargement: true,
   });
 
-  if (ext === '.png') {
-    img = img.png({ quality: 20, palette: true });
-  } else {
-    img = img.jpeg({ quality: 20, mozjpeg: true });
-  }
+  if (ext === '.png') img = img.png({ quality: 20, palette: true });
+  else img = img.jpeg({ quality: 20, mozjpeg: true });
 
   const out = await img.toBuffer();
   await fs.writeFile(file, out);
   console.log(
-    `${file} (${(buf.length / 1024).toFixed(1)}KB -> ${(out.length / 1024).toFixed(1)}KB)`,
+    `${file} (${(buf.length / 1024).toFixed(0)}KB -> ${(out.length / 1024).toFixed(0)}KB)`,
   );
 }
